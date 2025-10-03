@@ -1,0 +1,463 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f8f8f8;
+  color: #333;
+}
+
+/* Header sticky con efecto glass */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.7); /* negro semi-transparente */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  padding: 15px 0;
+}
+
+/* Cuando se hace scroll */
+header.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 8px 0;
+}
+
+/* Estilo de links del menú */
+header nav a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: white;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.producto {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+.producto.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.producto img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.producto img:hover {
+  transform: scale(1.05);
+}
+
+.producto button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.producto button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+.producto button:hover {
+  background: darkgoldenrod;
+}
+
+/* Carrito flotante */
+#carritoFlotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: gold;
+  color: black;
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+#carritoFlotante:hover {
+  transform: scale(1.1);
+}
+
+/* Modal del carrito */
+#modalCarrito {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.3);
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
+
+#modalCarrito.activo {
+  transform: translateX(0);
+}
+
+#modalCarrito .contenido {
+  padding: 20px;
+}
+
+#modalCarrito .cerrar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 55%;
+  max-height: 55%;
+  margin-top: 5%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+
+.lightbox img:hover {
+  transform: scale(1.05);
+}
+
+.lightbox .cerrar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botones del lightbox */
+.lightbox button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lightbox button:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.lightbox .prev {
+  left: 30px;   /* Botón a la izquierda */
+}
+
+.lightbox .next {
+  right: 30px;  /* Botón a la derecha */
+}
+/* Lista del carrito */
+#itemsCarrito {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#itemsCarrito li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+#itemsCarrito img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #e74c3c;
+  transition: 0.2s;
+}
+
+.remove-btn:hover {
+  color: #c0392b;
+}
+
+/* Footer del carrito */
+.cart-footer {
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+#totalCarritoText {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Botón WhatsApp */
+#whatsappBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: #25d366;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#whatsappBtn img {
+  width: 20px;
+  height: 20px;
+}
+
+#whatsappBtn:hover {
+  background: #1ebc57;
+}
+
+/* Header */
+header {
+  background: #000;
+  color: gold;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 60px;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Menú */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: gold;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* Sección inicio */
+.inicio {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom, #111, #222);
+  color: white;
+}
+
+.inicio h2 {
+  color: gold;
+  font-size: 28px;
+}
+
+/* Contacto */
+.contacto {
+  padding: 40px;
+  text-align: center;
+  background: #111;
+  color: white;
+}
+
+.contacto h2 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: gold;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 0px;
+  border-top: 0px solid gold;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: brightness(1) saturate(1.5); /* efecto dorado */
+}
+
+/* Links del menú con efecto subrayado dorado */
+header nav a {
+  position: relative;
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+/* Subrayado dorado animado */
+header nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: gold;
+  transition: width 0.3s ease;
+}
+
+/* Cuando el mouse pasa */
+header nav a:hover {
+  color: white;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* Botón dorado glass */
+.boton-dorado {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, gold, goldenrod);
+  color: #111;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Brillo animado */
+.boton-dorado::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.boton-dorado:hover::after {
+  left: 100%;
+}
+
+.boton-dorado:hover {
+  transform: scale(1.05);
+}

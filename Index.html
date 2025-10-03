@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda y accesorios AVAR</title>
+  <link rel="stylesheet" type="text/css" href="C:\Users\danie\Desktop\Backup\Versión 2.0\styles.css">
+</head>
+<body>
+ <header>
+  <div class="logo-container">
+    <img src="img/Logo.png" alt="Logo AVAR" class="logo">
+    <h1>AVAR JOYERÍA</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Inicio -->
+<section id="inicio" class="inicio">
+  <h2>Bienvenido a AVAR Joyería</h2>
+  <p>Encuentra las joyas más exclusivas y elegantes para cada ocasión.</p>
+  <p><li><a href="#catalogo" class="boton-dorado">✨ Ver Catálogo</a></li></p>
+</section>
+
+<!-- Catálogo -->
+<section id="catalogo" class="catalogo"></section>
+
+<!-- Contacto -->
+<section id="contacto" class="contacto">
+  <h2>Contáctanos</h2>
+  <p>📍 Dirección: Tu dirección aquí</p>
+  <p>📞 Teléfono: +57 300 000 0000</p>
+  <p>📧 Email: contacto@avarjoyeria.com</p>
+</section>
+
+  <!-- Botón flotante del carrito -->
+  <div id="carritoFlotante">
+    🛒 <span id="contadorCarrito">0</span>
+  </div>
+
+  <!-- Modal del carrito -->
+<div id="modalCarrito">
+  <div class="contenido">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <h2>🛒 Tu Carrito</h2>
+    <ul id="itemsCarrito"></ul>
+    <div class="cart-footer">
+      <p id="totalCarritoText"><b>Total:</b> $<span id="totalCarrito">0</span></p>
+      <button id="whatsappBtn" onclick="enviarPedido()">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp" />
+        Enviar pedido por WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="cerrar" onclick="cerrarLightbox()">&times;</span>
+  <button class="prev" onclick="cambiarImagen(-1)">⟨</button>
+  <img id="lightboxImg" src="">
+  <button class="next" onclick="cambiarImagen(1)">⟩</button>
+</div>
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 AVAR Joyería - Todos los derechos reservados</p>
+    <div class="social-icons">
+      <a href="https://wa.me/573000000000" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</footer>
+  <script src="C:\Users\danie\Desktop\Backup\Versión 2.0\script.js"></script>
+</body>
+</html>
