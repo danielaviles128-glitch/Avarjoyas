@@ -608,14 +608,28 @@ header nav a:hover::after {
   border: none;
 }
 
-/* Vista móvil */
+/* --- Vista móvil --- */
 @media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .logo-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
   .menu-toggle {
     display: block;
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    z-index: 1100;
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-left: auto;
+    z-index: 1000;
   }
 
   nav {
@@ -623,7 +637,7 @@ header nav a:hover::after {
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     padding: 20px 0;
     text-align: center;
