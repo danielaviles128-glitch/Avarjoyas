@@ -497,3 +497,104 @@ header nav a:hover::after {
 .filtros select {
   cursor: pointer;
 }
+/* --- AJUSTES RESPONSIVE --- */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  .logo-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  /* Catálogo */
+  .catalogo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .producto img {
+    max-height: 200px;
+  }
+
+  /* Filtros */
+  .filtros {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filtros input,
+  .filtros select {
+    width: 90%;
+  }
+
+  /* Carrito flotante */
+  #carritoFlotante {
+    bottom: 10px;
+    right: 10px;
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  /* Modal del carrito */
+  #modalCarrito {
+    width: 100%;
+  }
+
+  /* Sección inicio */
+  .inicio h2 {
+    font-size: 22px;
+  }
+
+  .inicio p {
+    font-size: 16px;
+  }
+
+  /* Footer */
+  footer p {
+    font-size: 12px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* --- AJUSTE EXTRA PARA TELÉFONOS PEQUEÑOS --- */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 16px;
+  }
+
+  .boton-dorado {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .producto {
+    padding: 10px;
+  }
+}
