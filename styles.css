@@ -598,3 +598,54 @@ header nav a:hover::after {
     padding: 10px;
   }
 }
+/* --- MENÚ HAMBURGUESA --- */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: gold;
+  background: none;
+  border: none;
+}
+
+/* Vista móvil */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 1100;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 18px;
+    display: block;
+  }
+
+  nav.activo {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

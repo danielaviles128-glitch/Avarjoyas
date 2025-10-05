@@ -164,3 +164,17 @@ function filtrarProductos() {
 
   mostrarCatalogo(filtrados);
 }
+// --- Menú hamburguesa ---
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.querySelector("nav");
+
+menuToggle.addEventListener("click", () => {
+  nav.classList.toggle("activo");
+});
+
+// Cerrar el menú al hacer clic en un enlace
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("activo");
+  });
+});
