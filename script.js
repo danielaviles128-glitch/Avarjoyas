@@ -136,7 +136,7 @@ function enviarPedido() {
   });
   mensaje += `\nTotal: $${document.getElementById("totalCarrito").innerText}`;
 
-  let url = `https://wa.me/573000000000?text=${encodeURIComponent(mensaje)}`;
+  let url = `https://wa.me/573214069288?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
 }
 
@@ -151,3 +151,16 @@ window.addEventListener("scroll", function() {
     header.classList.remove("scrolled");
   }
 });
+// --- FILTRO Y BÚSQUEDA ---
+function filtrarProductos() {
+  let texto = document.getElementById("buscador").value.toLowerCase();
+  let categoria = document.getElementById("filtroCategoria").value;
+
+  let filtrados = productos.filter(p => {
+    let coincideTexto = p.nombre.toLowerCase().includes(texto);
+    let coincideCategoria = categoria ? p.categoria === categoria : true;
+    return coincideTexto && coincideCategoria;
+  });
+
+  mostrarCatalogo(filtrados);
+}

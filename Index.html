@@ -29,14 +29,25 @@
 </section>
 
 <!-- Catálogo -->
+<!-- Filtros y búsqueda -->
+<div class="filtros">
+  <input type="text" id="buscador" placeholder="🔍 Buscar producto..." oninput="filtrarProductos()">
+  
+  <select id="filtroCategoria" onchange="filtrarProductos()">
+    <option value="">Todas las categorías</option>
+    <option value="anillo">Anillos</option>
+    <option value="collar">Collares</option>
+    <option value="aretes">Aretes</option>
+  </select>
+</div>
 <section id="catalogo" class="catalogo"></section>
 
 <!-- Contacto -->
 <section id="contacto" class="contacto">
   <h2>Contáctanos</h2>
-  <p>📍 Dirección: Tu dirección aquí</p>
-  <p>📞 Teléfono: +57 300 000 0000</p>
-  <p>📧 Email: contacto@avarjoyeria.com</p>
+  <p>📍 Dirección: Calle 11 Numéro 7-85, San Sebastián de Mariquita - Tolima</p>
+  <p>📞 Teléfono: +57 3214069288</p>
+  <p>📧 Email: avarjoyas@gmail.com</p>
 </section>
 
   <!-- Botón flotante del carrito -->
@@ -72,10 +83,10 @@
   <div class="footer-container">
     <p>&copy; 2025 AVAR Joyería - Todos los derechos reservados</p>
     <div class="social-icons">
-      <a href="https://wa.me/573000000000" target="_blank">
+      <a href="https://wa.me/573214069288" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
       </a>
-      <a href="https://www.instagram.com/" target="_blank">
+      <a href="https://www.instagram.com/avarjoyas?igsh=aWZzMWN2eHFhandr&utm_source=qr" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
       <a href="https://www.facebook.com/" target="_blank">

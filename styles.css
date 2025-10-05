@@ -461,3 +461,39 @@ header nav a:hover::after {
 .boton-dorado:hover {
   transform: scale(1.05);
 }
+/* --- FILTROS Y BUSCADOR --- */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0 20px;
+  padding: 10px;
+}
+
+.filtros input,
+.filtros select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 2px solid #111;
+  outline: none;
+  background: #ffffff;
+  color: #111;
+  transition: 0.3s;
+}
+
+.filtros input::placeholder {
+  color: #111;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+  border-color: goldenrod;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.filtros select {
+  cursor: pointer;
+}
