@@ -738,3 +738,171 @@ header h1 {
     to { opacity: 1; transform: translateY(0); }
   }
 }
+/* --- Catálogo general --- */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* columnas flexibles */
+  gap: 20px;
+  justify-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- Tarjeta de producto --- */
+.producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4); /* sombra dorada elegante */
+}
+
+/* --- Imagen del producto --- */
+.producto img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* --- Título y texto --- */
+.producto h3, 
+.producto p {
+  margin: 5px 0;
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* --- Botón verde original --- */
+.producto button {
+  margin-top: auto;
+  background: #4CAF50; /* verde profesional */
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.producto button:hover {
+  background: #45a049; /* tono más oscuro */
+  transform: scale(1.05);
+}
+
+/* --- Versión móvil (ajuste responsivo) --- */
+@media (max-width: 768px) {
+  .catalogo {
+    grid-template-columns: 1fr; /* una sola columna */
+    justify-items: center;
+  }
+
+  .producto {
+    max-width: 90%;
+  }
+
+  .producto img {
+    height: 200px;
+  }
+}
+/* --- Encabezado principal --- */
+.encabezado {
+  background: linear-gradient(90deg, #f8f1e4, #f0dca7); /* beige con dorado suave */
+  color: #3e3e3e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeInDown 0.6s ease;
+}
+
+/* --- Animación de entrada --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Contenedor del logo y nombre --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 55px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.nombre-tienda {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #8a6b2e; /* dorado oscuro */
+  letter-spacing: 1px;
+}
+
+/* --- Menú de navegación --- */
+.menu {
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #3e3e3e;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a:hover {
+  color: #b6922e; /* dorado elegante */
+  transform: scale(1.05);
+}
+
+/* --- Versión móvil --- */
+@media (max-width: 768px) {
+  .encabezado {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nombre-tienda {
+    font-size: 1.3rem;
+  }
+}

@@ -1,15 +1,24 @@
 // --- Inventario de productos ---
 let productos = [
-  { id: 1, nombre: "Anillo de Oro", precio: 500000, categoria: "anillo", stock: 5, imagen: "img/anillo.png" },
-  { id: 2, nombre: "Collar con Esmeralda", precio: 1200000, categoria: "collar", stock: 3, imagen: "img/collar.png" },
-  { id: 3, nombre: "Aretes de Plata", precio: 250000, categoria: "aretes", stock: 10, imagen: "img/aretes.png" }
+  { id: 1, nombre: "Set Collar Trebol Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolblanco_1.jpeg" },
+  { id: 2, nombre: "Set Collar Trebol Negro (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Collartrebolnegro_1.jpeg" },
+  { id: 3, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
+  { id: 4, nombre: "Camándula", precio: 35000, categoria: "Collar", stock: 1, imagen: "img/camandula.jpeg" },
+  { id: 5, nombre: "Collar de corazón y huella perrito", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Huellaperrito.jpeg" },
+  { id: 6, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
+  { id: 7, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
+  
 ];
 
 // --- Imágenes adicionales para el lightbox ---
 let imagenesProducto = {
-  1: ["img/anillo.png", "img/anillo2.png", "img/anillo3.png"],
-  2: ["img/collar.png", "img/collar2.png"],
-  3: ["img/aretes.png", "img/aretes2.png"]
+  1: ["img/Collartrebolblanco_1.jpeg", "img/Collartrebolblanco_2.jpeg", "img/Collartrebolblanco_3.jpeg"],
+  2: ["img/Collartrebolnegro_1.jpeg", "img/Collartrebolnegro_2.jpeg", "img/Collartrebolblanco_3.jpeg"],
+  3: ["img/Collartrebolnegroblanco_1.jpeg", "img/Collartrebolblanco_3.jpeg"],
+  4: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
+  5: ["img/Huellaperrito.jpeg", "img/Avar.jpeg"],
+  6: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
+  7: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
 };
 
 // --- Variables globales ---
