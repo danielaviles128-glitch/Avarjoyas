@@ -1,12 +1,17 @@
 // --- Inventario de productos ---
 let productos = [
-  { id: 1, nombre: "Set Collar Trebol Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolblanco_1.jpeg" },
+  { id: 1, nombre: "Set Collar Trebol Blanco (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Collartrebolblanco_1.jpeg" },
   { id: 2, nombre: "Set Collar Trebol Negro (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Collartrebolnegro_1.jpeg" },
-  { id: 3, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
-  { id: 4, nombre: "Camándula", precio: 35000, categoria: "Collar", stock: 1, imagen: "img/camandula.jpeg" },
-  { id: 5, nombre: "Collar de corazón y huella perrito", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Huellaperrito.jpeg" },
-  { id: 6, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
-  { id: 7, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "Collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
+  { id: 3, nombre: "Set Collar Trebol Negro - Blanco (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Collartrebolnegroblanco_1.jpeg" },
+  { id: 4, nombre: "Camándula", precio: 35000, categoria: "collar", stock: 1, imagen: "img/camandula.jpeg" },
+  { id: 5, nombre: "Collar de corazón y huella perrito", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Huellaperrito.jpeg" },
+  { id: 6, nombre: "Collar y Aretes Corazón Punzante", precio: 21000, categoria: "collar", stock: 1, imagen: "img/Corazoespada.jpeg" },
+  { id: 7, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera1.jpeg" },
+  { id: 8, nombre: "Set de Doble Tobillera Delfines y Corazones", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera2.jpeg" },
+  { id: 9, nombre: "Tobillera Doble Amuleto de la Suerte", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera3.jpeg" },
+  { id: 10, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "pulseras", stock: 1, imagen: "img/tobillera1.jpeg" },
+  { id: 11, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "pulseras", stock: 1, imagen: "img/tobillera1.jpeg" },
+  { id: 12, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "pulseras", stock: 1, imagen: "img/tobillera1.jpeg" },
   
 ];
 
@@ -17,8 +22,13 @@ let imagenesProducto = {
   3: ["img/Collartrebolnegroblanco_1.jpeg", "img/Collartrebolblanco_3.jpeg"],
   4: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
   5: ["img/Huellaperrito.jpeg", "img/Avar.jpeg"],
-  6: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
-  7: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
+  6: ["img/Corazoespada.jpeg", "img/Corazoespada1.jpeg"],
+  7: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
+  8: ["img/tobillera2.jpeg", "img/Avar.jpeg"],
+  9: ["img/tobillera3.jpeg", "img/Avar.jpeg"],
+  10: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
+  11: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
+  12: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
 };
 
 // --- Variables globales ---
