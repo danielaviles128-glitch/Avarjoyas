@@ -9,9 +9,17 @@ let productos = [
   { id: 7, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera1.jpeg" },
   { id: 8, nombre: "Set de Doble Tobillera Delfines y Corazones", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera2.jpeg" },
   { id: 9, nombre: "Tobillera Doble Amuleto de la Suerte", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera3.jpeg" },
-  { id: 10, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "pulseras", stock: 1, imagen: "img/tobillera1.jpeg" },
-  { id: 11, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "pulseras", stock: 1, imagen: "img/tobillera1.jpeg" },
-  { id: 12, nombre: "Tobillera de Charms de Corazones y Cristales", precio: 10000, categoria: "pulseras", stock: 1, imagen: "img/tobillera1.jpeg" },
+  { id: 10, nombre: "Pulsera Clarity", precio: 18000, categoria: "pulseras", stock: 1, imagen: "img/Pulseratrebolblanca.jpeg" },
+  { id: 11, nombre: "Pulsera Mariposa Zirconia Rosa", precio: 18000, categoria: "pulseras", stock: 1, imagen: "img/Pulseramariposa2.jpeg" },
+  { id: 12, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
+  { id: 13, nombre: "Pulsera Corazones de Luz", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Pulseracorazonezblanco1.jpeg" },
+  { id: 14, nombre: "Pulsera Armonía Dual", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Pulserayinyang.jpeg" },
+  { id: 15, nombre: "Pulsera Lazo Corazón de Brillo", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Pulseramoñocora.jpeg" },
+  { id: 16, nombre: "Pulsera Rock & Pearl", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Perlas.jpeg" },
+  { id: 17, nombre: "Pulsera Encanto Tricolor", precio: 17000, categoria: "pulseras", stock: 1, imagen: "img/Pulseracoracolor.jpeg" },
+  { id: 18, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
+  { id: 19, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
+  { id: 20, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
   
 ];
 
@@ -26,9 +34,17 @@ let imagenesProducto = {
   7: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
   8: ["img/tobillera2.jpeg", "img/Avar.jpeg"],
   9: ["img/tobillera3.jpeg", "img/Avar.jpeg"],
-  10: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
-  11: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
-  12: ["img/tobillera1.jpeg", "img/Avar.jpeg"],
+  10: ["img/Pulseratrebolblanca.jpeg", "img/Pulseratrebolblanca1.jpeg", "img/Pulseratrebolblanca2.jpeg", "img/Pulseratrebolblanca3.jpeg"],
+  11: ["img/Pulseramariposa2.jpeg", "img/Pulseramariposa1.jpeg", "img/Pulseramariposa.jpeg"],
+  12: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
+  13: ["img/Pulseracorazonezblanco1.jpeg", "img/Pulseracorazonezblanco.jpeg"],
+  14: ["img/Pulserayinyang.jpeg", "img/Pulserayinyang1.jpeg", "img/Pulserayinyang2.jpeg"],
+  15: ["img/Pulseramoñocora.jpeg", "img/Pulseramoñocora2.jpeg"],
+  16: ["img/Perlas.jpeg", "img/Perlas1.jpeg", "img/Perlas2.jpeg", "img/Perlas3.jpeg"],
+  17: ["img/Pulseracoracolor.jpeg", "img/Pulseracoracolor1.jpeg"],
+  18: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
+  19: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
+  20: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
 };
 
 // --- Variables globales ---
