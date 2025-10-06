@@ -17,13 +17,10 @@ let productos = [
   { id: 15, nombre: "Pulsera Lazo Corazón de Brillo", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Pulseramoñocora.jpeg" },
   { id: 16, nombre: "Pulsera Rock & Pearl", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Perlas.jpeg" },
   { id: 17, nombre: "Pulsera Encanto Tricolor", precio: 17000, categoria: "pulseras", stock: 1, imagen: "img/Pulseracoracolor.jpeg" },
-  { id: 18, nombre: "Set de Doble Tobillera Delfines y Corazones", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera2.jpeg" },
-  { id: 19, nombre: "Tobillera Doble Amuleto de la Suerte", precio: 10000, categoria: "tobilleras", stock: 1, imagen: "img/tobillera3.jpeg" },
-  { id: 20, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
-  { id: 21, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
-  { id: 22, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
-  { id: 23, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
-  { id: 24, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
+  { id: 18, nombre: "Joya de Mar", precio: 10000, categoria: "aretes", stock: 1, imagen: "img/aretesmar.jpeg" },
+  { id: 19, nombre: "Pulsera unisex Dúo Nocturno", precio: 15000, categoria: "pulseras", stock: 2, imagen: "img/pulserahombre.jpeg" },
+  { id: 20, nombre: "Argollas Coral", precio: 15000, categoria: "aretes", stock: 1, imagen: "img/aretesrojos.jpeg" },
+  { id: 21, nombre: "Anillo Color Block", precio: 15000, categoria: "anillos", stock: 1, imagen: "img/anillo.jpeg" },
 ];
 
 // --- Imágenes adicionales para el lightbox ---
@@ -45,12 +42,10 @@ let imagenesProducto = {
   15: ["img/Pulseramoñocora.jpeg", "img/Pulseramoñocora2.jpeg"],
   16: ["img/Perlas.jpeg", "img/Perlas1.jpeg", "img/Perlas2.jpeg", "img/Perlas3.jpeg"],
   17: ["img/Pulseracoracolor.jpeg", "img/Pulseracoracolor1.jpeg"],
-  18: ["img/tobillera2.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
-  19: ["img/tobillera3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
-  20: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
-  21: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
-  22: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
-  23: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
+  18: ["img/aretesmar.jpeg", "img/aretesmar1.jpeg", "img/aretesmar2.jpeg"],
+  19: ["img/pulserahombre.jpeg", "img/Avar.jpeg"],
+  20: ["img/aretesrojos.jpeg", "img/aretesrojos1.jpeg"],
+  21: ["img/anillo.jpeg", "img/anillo1.jpeg", "img/anillo2.jpeg"],
 };
 
 // --- Variables globales ---
