@@ -1,7 +1,6 @@
 // --- Inventario de productos ---
 let productos = [
   { id: 1, nombre: "Set Collar Trebol Blanco (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Collartrebolblanco_1.jpeg" },
-  { id: 2, nombre: "Set Collar Trebol Negro (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Collartrebolnegro_1.jpeg" },
   { id: 4, nombre: "Camándula", precio: 35000, categoria: "collar", stock: 1, imagen: "img/camandula.jpeg" },
   { id: 5, nombre: "Collar de corazón y huella perrito (Collar + Aretes)", precio: 30000, categoria: "collar", stock: 1, imagen: "img/Huellaperrito.jpeg" },
   { id: 6, nombre: "Collar y Aretes Corazón Punzante", precio: 21000, categoria: "collar", stock: 1, imagen: "img/Corazoespada.jpeg" },
@@ -9,8 +8,6 @@ let productos = [
   { id: 9, nombre: "Pulsera Mariposa Zirconia Rosa", precio: 18000, categoria: "pulseras", stock: 1, imagen: "img/Pulseramariposa2.jpeg" },
   { id: 10, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
   { id: 11, nombre: "Pulsera Armonía Dual", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Pulserayinyang.jpeg" },
-  { id: 12, nombre: "Pulsera Rock & Pearl", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Perlas.jpeg" },
-  { id: 13, nombre: "Joya de Mar", precio: 10000, categoria: "aretes", stock: 1, imagen: "img/aretesmar.jpeg" },
   { id: 14, nombre: "Pulsera unisex Dúo Nocturno", precio: 15000, categoria: "pulseras", stock: 2, imagen: "img/pulserahombre.jpeg" },
   { id: 15, nombre: "Argollas Coral", precio: 15000, categoria: "aretes", stock: 1, imagen: "img/aretesrojos.jpeg" },
   { id: 16, nombre: "Anillo Color Block", precio: 15000, categoria: "anillos", stock: 1, imagen: "img/anillo.jpeg" },
@@ -19,7 +16,6 @@ let productos = [
 // --- Imágenes adicionales para el lightbox ---
 let imagenesProducto = {
   1: ["img/Collartrebolblanco_1.jpeg", "img/Collartrebolblanco_2.jpeg", "img/Collartrebolblanco_3.jpeg"],
-  2: ["img/Collartrebolnegro_1.jpeg", "img/Collartrebolnegro_2.jpeg", "img/Collartrebolblanco_3.jpeg"],
   4: ["img/camandula.jpeg", "img/camandula1.jpeg", "img/camandula2.jpeg"],
   5: ["img/Huellaperrito.jpeg", "img/huellaperrito1.jpeg"],
   6: ["img/Corazoespada.jpeg", "img/Corazoespada1.jpeg"],
@@ -27,8 +23,6 @@ let imagenesProducto = {
   9: ["img/Pulseramariposa2.jpeg", "img/Pulseramariposa1.jpeg", "img/Pulseramariposa.jpeg"],
   10: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
   11: ["img/Pulserayinyang.jpeg", "img/Pulserayinyang1.jpeg", "img/Pulserayinyang2.jpeg"],
-  12: ["img/Perlas.jpeg", "img/Perlas1.jpeg", "img/Perlas2.jpeg", "img/Perlas3.jpeg"],
-  13: ["img/aretesmar.jpeg", "img/aretesmar1.jpeg", "img/aretesmar2.jpeg"],
   14: ["img/pulserahombre.jpeg", "img/Avar.jpeg"],
   15: ["img/aretesrojos.jpeg", "img/aretesrojos1.jpeg"],
   16: ["img/anillo.jpeg", "img/anillo1.jpeg", "img/anillo2.jpeg"],
