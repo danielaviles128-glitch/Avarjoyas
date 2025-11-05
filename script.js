@@ -1,23 +1,24 @@
-// --- Inventario de productos ---
-let productos = [
-  { id: 1, nombre: "Set Collar Trebol Blanco (Collar + Aretes)", precio: 25000, categoria: "collar", stock: 1, imagen: "img/Collartrebolblanco_1.jpeg" },
-  { id: 10, nombre: "Pulsera Dúo Mágico", precio: 25000, categoria: "pulseras", stock: 1, imagen: "img/Pandora3.jpeg" },
-  { id: 11, nombre: "Pulsera Armonía Dual", precio: 20000, categoria: "pulseras", stock: 1, imagen: "img/Pulserayinyang.jpeg" },
-  { id: 14, nombre: "Pulsera unisex Dúo Nocturno", precio: 15000, categoria: "pulseras", stock: 2, imagen: "img/pulserahombre.jpeg" },
-  { id: 16, nombre: "Anillo Color Block", precio: 15000, categoria: "anillos", stock: 1, imagen: "img/anillo.jpeg" },
-];
+let productos = [];
+let carrito = [];
 
-// --- Imágenes adicionales para el lightbox ---
-let imagenesProducto = {
-  1: ["img/Collartrebolblanco_1.jpeg", "img/Collartrebolblanco_2.jpeg", "img/Collartrebolblanco_3.jpeg"],
-  10: ["img/Pandora3.jpeg", "img/Pandora1.jpeg", "img/Pandora2.jpeg", "img/Pandora.jpeg"],
-  11: ["img/Pulserayinyang.jpeg", "img/Pulserayinyang1.jpeg", "img/Pulserayinyang2.jpeg"],
-  14: ["img/pulserahombre.jpeg", "img/Avar.jpeg"],
-  16: ["img/anillo.jpeg", "img/anillo1.jpeg", "img/anillo2.jpeg"],
-};
+// --- Cargar productos desde la base de datos (API local) ---
+async function cargarProductos() {
+  try {
+    const respuesta = await fetch("https://avarjoyas-api.onrender.com/api/productos");
+    productos = await respuesta.json();
+    mostrarCatalogo();
+  } catch (error) {
+    console.error("❌ Error al cargar productos:", error);
+    document.getElementById("catalogo").innerHTML = `
+      <p style="color:red; text-align:center;">No se pudo conectar con la base de datos</p>
+    `;
+  }
+}
+
+// --- Ejecutar la carga al inicio ---
+cargarProductos();
 
 // --- Variables globales ---
-let carrito = [];
 let indiceActual = 0;
 let productoActual = 0;
 
@@ -30,7 +31,7 @@ function mostrarCatalogo(lista = productos) {
     let div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
-      <img src="${prod.imagen}" alt="${prod.nombre}" onclick="abrirLightbox(${prod.id},0)">
+      <img src="${prod.imagen.split(',')[0].trim()}" alt="${prod.nombre}" onclick="abrirLightbox(${prod.id},0)">
       <h3>${prod.nombre}</h3>
       <p>$${prod.precio.toLocaleString()}</p>
       <p>Stock: ${prod.stock}</p>
@@ -100,10 +101,18 @@ function eliminarDelCarrito(index) {
 }
 // --- Lightbox (solo manual) ---
 function abrirLightbox(id, index = 0) {
+  const producto = productos.find(p => p.id === id);
+  if (!producto) return;
+
+  const imagenes = producto.imagen.split(",").map(img => img.trim());
   productoActual = id;
   indiceActual = index;
-  document.getElementById("lightboxImg").src = imagenesProducto[id][index];
+  
+  document.getElementById("lightboxImg").src = imagenes[indiceActual];
   document.getElementById("lightbox").style.display = "flex";
+
+  // Guarda temporalmente las imágenes del producto
+  window.imagenesActuales = imagenes;
 }
 
 function cerrarLightbox() {
@@ -111,11 +120,13 @@ function cerrarLightbox() {
 }
 
 function cambiarImagen(direccion) {
+  if (!window.imagenesActuales) return;
   indiceActual += direccion;
-  let imgs = imagenesProducto[productoActual];
-  if (indiceActual < 0) indiceActual = imgs.length - 1;
-  if (indiceActual >= imgs.length) indiceActual = 0;
-  document.getElementById("lightboxImg").src = imgs[indiceActual];
+
+  if (indiceActual < 0) indiceActual = window.imagenesActuales.length - 1;
+  if (indiceActual >= window.imagenesActuales.length) indiceActual = 0;
+
+  document.getElementById("lightboxImg").src = window.imagenesActuales[indiceActual];
 }
 
 // --- Modal del carrito ---
