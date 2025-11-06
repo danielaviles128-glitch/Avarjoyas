@@ -25,20 +25,13 @@ async function cargarProductos() {
   }
 }
 
-// --- Ejecutar la carga al inicio ---
-cargarProductos();
-
-// --- Variables globales ---
-let indiceActual = 0;
-let productoActual = 0;
-
 // --- Mostrar catálogo ---
 function mostrarCatalogo(lista = productos) {
-  let catalogoDiv = document.getElementById("catalogo");
+  const catalogoDiv = document.getElementById("catalogo");
   catalogoDiv.innerHTML = "";
 
   lista.forEach(prod => {
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
       <img src="${prod.imagen.split(',')[0].trim()}" alt="${prod.nombre}" onclick="abrirLightbox(${prod.id},0)">
@@ -49,17 +42,18 @@ function mostrarCatalogo(lista = productos) {
         ${prod.stock === 0 ? "Agotado" : "Agregar al carrito"}
       </button>
     `;
+
+    // ✅ La animación debe ir dentro del forEach (donde sí existe div)
+    setTimeout(() => {
+      div.classList.add("visible");
+    }, 100);
+
     catalogoDiv.appendChild(div);
   });
 }
 
-// Llama la función al cargar la página
+// --- Ejecutar la carga al inicio ---
 cargarProductos();
-    // Animación de aparición
-    setTimeout(() => {
-      div.classList.add("visible");
-    }, 100);
-;
 
 // --- Carrito ---
 function agregarAlCarrito(id) {
