@@ -1,12 +1,22 @@
 let productos = [];
 let carrito = [];
 
-// --- Cargar productos desde la base de datos (API local) ---
+// --- Cargar productos desde la base de datos (automático: local o producción) ---
 async function cargarProductos() {
   try {
-    const respuesta = await fetch("https://avarjoyas-api.onrender.com/api/productos");
-    productos = await respuesta.json();
-    mostrarCatalogo();
+    // Detecta si estás en localhost o en producción
+    const API_BASE_URL = window.location.hostname.includes("localhost")
+      ? "http://localhost:3000" // cuando pruebas en tu PC
+      : "https://avarjoyas-api.onrender.com"; // cuando tu web está en línea
+
+    const respuesta = await fetch(`${API_BASE_URL}/api/productos`);
+    const data = await respuesta.json();
+
+    // Guarda los productos globalmente (para buscador o carrito)
+    productos = data;
+
+    // Muestra el catálogo con la lista recibida
+    mostrarCatalogo(productos);
   } catch (error) {
     console.error("❌ Error al cargar productos:", error);
     document.getElementById("catalogo").innerHTML = `
@@ -40,13 +50,16 @@ function mostrarCatalogo(lista = productos) {
       </button>
     `;
     catalogoDiv.appendChild(div);
+  });
+}
 
+// Llama la función al cargar la página
+cargarProductos();
     // Animación de aparición
     setTimeout(() => {
       div.classList.add("visible");
     }, 100);
-  });
-}
+;
 
 // --- Carrito ---
 function agregarAlCarrito(id) {
