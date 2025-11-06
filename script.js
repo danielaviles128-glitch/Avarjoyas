@@ -12,8 +12,8 @@ async function cargarProductos() {
     const respuesta = await fetch(`${API_BASE_URL}/api/productos`);
     const data = await respuesta.json();
 
-    // Guarda los productos globalmente (para buscador o carrito)
-    productos = data;
+    // asegurar que precio sea Number y no string
+    productos = data.map(p => ({ ...p, precio: Number(p.precio) }));
 
     // Muestra el catálogo con la lista recibida
     mostrarCatalogo(productos);
@@ -36,7 +36,7 @@ function mostrarCatalogo(lista = productos) {
     div.innerHTML = `
       <img src="${prod.imagen.split(',')[0].trim()}" alt="${prod.nombre}" onclick="abrirLightbox(${prod.id},0)">
       <h3>${prod.nombre}</h3>
-      <p>$${prod.precio.toLocaleString()}</p>
+      <p>$${prod.precio.toLocaleString('es-ES')}</p>
       <p>Stock: ${prod.stock}</p>
       <button onclick="agregarAlCarrito(${prod.id})" ${prod.stock === 0 ? "disabled" : ""}>
         ${prod.stock === 0 ? "Agotado" : "Agregar al carrito"}
@@ -85,14 +85,14 @@ function actualizarCarrito() {
       <img src="${prod.imagen}" alt="${prod.nombre}">
       <div class="item-info">
         <strong>${prod.nombre}</strong><br>
-        x${prod.cantidad} - $${(prod.precio * prod.cantidad).toLocaleString()}
+        x${prod.cantidad} - $${(prod.precio * prod.cantidad).toLocaleString('es-ES')}
       </div>
       <button class="remove-btn" onclick="eliminarDelCarrito(${index})">❌</button>
     `;
     carritoDiv.appendChild(li);
   });
 
-  document.getElementById("totalCarrito").innerText = total.toLocaleString();
+  document.getElementById("totalCarrito").innerText = total.toLocaleString('es-ES');
   document.getElementById("contadorCarrito").innerText = carrito.length;
 }
 
@@ -154,7 +154,7 @@ function enviarPedido() {
 
   let mensaje = "Hola, quiero pedir:\n";
   carrito.forEach(p => {
-    mensaje += `- ${p.nombre} x${p.cantidad} = $${(p.precio * p.cantidad).toLocaleString()}\n`;
+    mensaje += `- ${p.nombre} x${p.cantidad} = $${(p.precio * p.cantidad).toLocaleString('es-ES')}\n`;
   });
   mensaje += `\nTotal: $${document.getElementById("totalCarrito").innerText}`;
 
