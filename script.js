@@ -80,12 +80,15 @@ function actualizarCarrito() {
   carrito.forEach((prod, index) => {
     total += prod.precio * prod.cantidad;
 
+    let imagenPrincipal = prod.imagen.split(",")[0].trim(); // ✅ toma la primera imagen válida
+
     let li = document.createElement("li");
+    li.classList.add("cart-item");
     li.innerHTML = `
-      <img src="${prod.imagen}" alt="${prod.nombre}">
+      <img src="${imagenPrincipal}" alt="${prod.nombre}">
       <div class="item-info">
         <strong>${prod.nombre}</strong><br>
-        x${prod.cantidad} - $${(prod.precio * prod.cantidad).toLocaleString('es-ES')}
+        x${prod.cantidad} — $${(prod.precio * prod.cantidad).toLocaleString('es-ES')}
       </div>
       <button class="remove-btn" onclick="eliminarDelCarrito(${index})">❌</button>
     `;
