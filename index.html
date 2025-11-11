@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AVAR Joyas</title>
   <link rel="stylesheet" href="./styles.css">
+  <!-- 🔹 Tipografías elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <!-- 🔹 SEO y metadatos para AVAR Joyas -->
 <title>AVAR Joyas | Bisutería elegante y moderna hecha para brillar cada día</title>
 <meta name="description" content="Descubre la elegancia en lo simple con AVAR Joyas. Collares, aretes, pulseras, anillos y tobilleras diseñadas para resaltar tu estilo único con el brillo del lujo artesanal.">
@@ -42,101 +45,125 @@
 
 <meta name="google-site-verification" content="google921def2cbc0c49fd.html" />
 
+<!-- Iconos Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 <body>
-  <header class="encabezado">
-  <div class="logo-container">
-    <img src="img/Logo.jpeg"" alt="Logo Avari Joyas" class="logo">
-    <h1 class="nombre-tienda">AVAR JOYAS</h1>
+  <!-- 🔹 HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="img/Logo.jpeg" alt="Logo AVAR Joyas" class="logo">
+        <h1 class="nombre-tienda">AVAR JOYAS</h1>
+      </div>
+
+      <div class="menu-toggle" id="menuToggle">☰</div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🔹 MAIN (todo el contenido principal dentro de este bloque) -->
+  <main>
+
+<!-- 🔹 SECCIÓN INICIO CON SLIDER DE TEXTO -->
+<section id="inicio" class="inicio-slider">
+  <div class="slider-text-wrapper">
+    <div class="text-slide active">
+      <h2>Bienvenido a AVAR Joyería</h2>
+      <p>Descubre la elegancia en lo simple con AVAR Joyas. Collares, aretes, pulseras, anillos y tobilleras diseñadas para resaltar tu estilo único con el brillo del lujo artesanal.</p>
+    </div>
+
+    <div class="text-slide">
+      <h2>Colecciones que inspiran</h2>
+      <p>Encuentra el accesorio perfecto que combina con tu esencia. Piezas modernas, elegantes y únicas.</p>
+    </div>
+
+    <div class="text-slide">
+      <h2>Hecho con amor</h2>
+      <p>Cada joya es elaborada a mano con pasión, detalle y un toque de brillo que te representa.</p>
+    </div>
   </div>
-  <!-- Botón menú hamburguesa -->
-<div class="menu-toggle" id="menuToggle">
-  ☰
-</div>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="catalogo.html">Catálogo</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
 
-<!-- Inicio -->
-<section id="inicio" class="inicio">
-  <h2>Bienvenido a AVAR Joyería</h2>
-  <p>Descubre la elegancia en lo simple con AVAR Joyas. Collares, aretes, pulseras, anillos y tobilleras diseñadas para resaltar tu estilo único con el brillo del lujo artesanal.</p>
+  <!-- 🔹 Indicadores (puntos) -->
+  <div class="slider-dots"></div>
 </section>
 
-<!-- Catálogo -->
-<!-- Filtros y búsqueda -->
-<div class="filtros">
-  <input type="text" id="buscador" placeholder="🔍 Buscar producto..." oninput="filtrarProductos()">
-  
-  <select id="filtroCategoria" onchange="filtrarProductos()">
-    <option value="">Todas las categorías</option>
-    <option value="collar">Collares</option>
-    <option value="aretes">Aretes</option>
-    <option value="tobilleras">Tobilleras</option>
-    <option value="pulseras">Pulseras</option>
-    <option value="anillos">Anillos</option>
-  </select>
-</div>
-<section id="catalogo" class="catalogo"></section>
+    <!-- 🔹 CATÁLOGO DINÁMICO -->
+    <section id="catalogo" class="catalogo"></section>
+  </main>
+  <!-- 🔹 FIN DEL MAIN -->
 
-<!-- Contacto -->
-<section id="contacto" class="contacto">
-  <h2>Contáctanos</h2>
-  <p>📍 Dirección: Calle 11 Numéro 7-85, San Sebastián de Mariquita - Tolima</p>
-  <p>📞 Teléfono: +57 3214069288</p>
-  <p>📧 Email: avarjoyas@gmail.com</p>
-</section>
-
-  <!-- Botón flotante del carrito -->
+  <!-- 🔹 BOTÓN FLOTANTE CARRITO -->
   <div id="carritoFlotante">
     🛒 <span id="contadorCarrito">0</span>
   </div>
 
-  <!-- Modal del carrito -->
+<!-- 🔹 PANEL LATERAL DEL CARRITO -->
 <div id="modalCarrito">
-  <div class="contenido">
-    <span class="cerrar" onclick="cerrarModal()">&times;</span>
-    <h2>🛒 Tu Carrito</h2>
-    <ul id="itemsCarrito"></ul>
-    <div class="cart-footer">
-      <p id="totalCarritoText"><b>Total:</b> $<span id="totalCarrito">0</span></p>
-      <button id="whatsappBtn" onclick="enviarPedido()">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp" />
-        Enviar pedido por WhatsApp
-      </button>
-    </div>
+  <span class="cerrar" onclick="cerrarModal()">&times;</span>
+  <h2>🛒 Tu Carrito</h2>
+  <ul id="itemsCarrito"></ul>
+  <div class="cart-footer">
+    <p><strong>Total:</strong> $<span id="totalCarrito">0</span></p>
+    <button id="whatsappBtn" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
   </div>
 </div>
 
-  <!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <span class="cerrar" onclick="cerrarLightbox()">&times;</span>
-  <button class="prev" onclick="cambiarImagen(-1)">⟨</button>
-  <img id="lightboxImg" src="">
-  <button class="next" onclick="cambiarImagen(1)">⟩</button>
-</div>
-<!-- Footer -->
-<footer>
-  <div class="footer-container">
-    <p>&copy; 2025 AVAR Joyería - Todos los derechos reservados</p>
-    <div class="social-icons">
-      <a href="https://wa.me/573214069288" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-      </a>
-      <a href="https://www.instagram.com/avarjoyas?igsh=aWZzMWN2eHFhandr&utm_source=qr" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-      <a href="https://www.facebook.com/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-      </a>
-    </div>
+  <!-- 🔹 LIGHTBOX (slider de imágenes) -->
+  <div id="lightbox" class="lightbox">
+    <span class="cerrar" onclick="cerrarLightbox()">&times;</span>
+    <button class="prev" onclick="cambiarImagen(-1)">⟨</button>
+    <img id="lightboxImg" src="" alt="Vista producto">
+    <button class="next" onclick="cambiarImagen(1)">⟩</button>
   </div>
-</footer>
+
+  <!-- 🔹 FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Servicio al Cliente</h4>
+        <p>📞 +57 321 406 9288</p>
+        <p>📧 avarjoyas@gmail.com</p>
+        <p>📍 San Sebastián de Mariquita, Tolima</p>
+        <p>🕒 Lunes a Sábado: 9:00 am – 7:00 pm</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Acerca de Nosotros</h4>
+        <p>En <strong>AVAR Joyas</strong> creamos piezas únicas con pasión y detalle. 
+        Cada joya refleja elegancia, brillo y estilo para resaltar tu esencia.</p>
+      </div>
+
+<div class="footer-column">
+  <h4>Suscríbete</h4>
+  <p>Recibe novedades, descuentos y colecciones exclusivas.</p>
+  <form id="form-suscripcion">
+    <input type="email" placeholder="Tu correo electrónico" required>
+    <button type="submit">Suscribirme</button>
+  </form>
+  <p id="mensaje-suscripcion" class="mensaje-suscripcion"></p>
+</div>
+
+    <div class="footer-bottom">
+      <p>© 2025 AVAR Joyas — Todos los derechos reservados</p>
+      <div class="social-icons">
+        <a href="https://wa.me/573214069288"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/avarjoyas?igsh=aWZzMWN2eHFhandr&utm_source=qr"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="./script.js"></script>
 </body>
+
 </html>
