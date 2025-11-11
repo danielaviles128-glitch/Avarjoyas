@@ -30,7 +30,6 @@ function mostrarCatalogo(lista = productos) {
   const catalogoDiv = document.getElementById("catalogo");
   catalogoDiv.innerHTML = "";
 
-
   lista.forEach(prod => {
     const div = document.createElement("div");
     div.classList.add("producto");
@@ -203,94 +202,4 @@ document.querySelectorAll("nav a").forEach(link => {
   link.addEventListener("click", () => {
     nav.classList.remove("activo");
   });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("form-suscripcion");
-  const input = form?.querySelector("input[type='email']");
-  const mensaje = document.getElementById("mensaje-suscripcion");
-
-  if (!form) return;
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = input.value.trim();
-
-    if (!email) {
-      mensaje.textContent = "Por favor ingresa un correo válido.";
-      mensaje.style.color = "red";
-      return;
-    }
-
-    try {
-      const response = await fetch("https://avarjoyas-api.onrender.com/api/suscribirse", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      mensaje.textContent = data.message || data.error;
-      mensaje.style.color = data.error ? "red" : "#4B3C33";
-
-      if (!data.error) form.reset();
-    } catch (err) {
-      console.error("Error al enviar suscripción:", err);
-      mensaje.textContent = "Hubo un error al registrar tu correo.";
-      mensaje.style.color = "red";
-    }
-  });
-});
-
-// === SLIDER DE TEXTO HORIZONTAL CON PUNTOS ===
-document.addEventListener("DOMContentLoaded", () => {
-  const slides = document.querySelectorAll(".inicio-slider .text-slide");
-  const wrapper = document.querySelector(".slider-text-wrapper");
-  const dotsContainer = document.querySelector(".slider-dots");
-  let index = 0;
-  let intervalo;
-
-  if (!slides.length || !wrapper) return; // evita errores si no existe el slider
-
-  // Crear puntos dinámicos
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
-    if (i === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => {
-      index = i;
-      actualizarSlider();
-      reiniciarSlider();
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll("button");
-
-  function actualizarSlider() {
-    wrapper.style.transform = `translateX(-${index * 100}%)`;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-    });
-  }
-
-  function siguienteSlide() {
-    index = (index + 1) % slides.length;
-    actualizarSlider();
-  }
-
-  function iniciarSlider() {
-    intervalo = setInterval(siguienteSlide, 5000);
-  }
-
-  function reiniciarSlider() {
-    clearInterval(intervalo);
-    iniciarSlider();
-  }
-
-  actualizarSlider();
-  iniciarSlider();
 });
