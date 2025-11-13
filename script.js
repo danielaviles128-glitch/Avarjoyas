@@ -4,19 +4,33 @@ let carrito = [];
 // --- Cargar productos desde la base de datos (automático: local o producción) ---
 async function cargarProductos() {
   try {
-    // Detecta si estás en localhost o en producción
     const API_BASE_URL = window.location.hostname.includes("localhost")
-      ? "http://localhost:3000" // cuando pruebas en tu PC
-      : "https://avarjoyas-api.onrender.com"; // cuando tu web está en línea
+      ? "http://localhost:3000"
+      : "https://avarjoyas-api.onrender.com";
 
     const respuesta = await fetch(`${API_BASE_URL}/api/productos`);
     const data = await respuesta.json();
 
-    // asegurar que precio sea Number y no string
+    // Asegurar que precio sea numérico
     productos = data.map(p => ({ ...p, precio: Number(p.precio) }));
 
-    // Muestra el catálogo con la lista recibida
-    mostrarCatalogo(productos);
+    // Detectar si estamos en el index o en otra página
+    const esIndex =
+      window.location.pathname.includes("index.html") ||
+      window.location.pathname === "/" ||
+      window.location.pathname === "/index";
+
+    let productosAMostrar;
+
+    if (esIndex) {
+      // Solo mostrar productos de nueva colección
+      productosAMostrar = productos.filter(p => p.nueva_coleccion === true);
+    } else {
+      // En catálogo u otras páginas, mostrar todo
+      productosAMostrar = productos;
+    }
+
+    mostrarCatalogo(productosAMostrar);
   } catch (error) {
     console.error("❌ Error al cargar productos:", error);
     document.getElementById("catalogo").innerHTML = `
@@ -301,3 +315,36 @@ document.addEventListener("DOMContentLoaded", () => {
   iniciarSlider();
 });
 
+document.getElementById("form-contacto").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("correo").value.trim();
+  const mensaje = document.getElementById("mensaje").value.trim();
+  const estado = document.getElementById("estado-mensaje");
+
+  estado.textContent = "Enviando mensaje... ⏳";
+  estado.style.color = "#d4a017"; // dorado
+
+  try {
+    const respuesta = await fetch("https://avarjoyas-api.onrender.com/api/contacto", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre, email, mensaje }),
+    });
+
+    const data = await respuesta.json();
+
+    if (respuesta.ok) {
+      estado.textContent = "✅ ¡Mensaje enviado correctamente!";
+      estado.style.color = "green";
+      e.target.reset(); // limpia los campos
+    } else {
+      estado.textContent = `❌ ${data.error || "Error al enviar el mensaje."}`;
+      estado.style.color = "red";
+    }
+  } catch (error) {
+    estado.textContent = "⚠️ Error de conexión con el servidor.";
+    estado.style.color = "red";
+  }
+});

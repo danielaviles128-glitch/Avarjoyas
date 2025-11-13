@@ -90,11 +90,17 @@
       <div class="contacto-card">
         <h2>Envíanos un mensaje</h2>
         <form id="form-contacto">
-          <input type="text" placeholder="Tu nombre" required>
-          <input type="email" placeholder="Tu correo electrónico" required>
-          <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-          <button type="submit">Enviar mensaje</button>
-        </form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required />
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+  <button type="submit" id="btn-enviar">Enviar</button>
+</form>
+<!-- Aquí se mostrará el estado del envío -->
+<p id="estado-mensaje" style="margin-top:10px; font-weight:bold;"></p>
       </div>
 
       <!-- Datos de contacto -->
