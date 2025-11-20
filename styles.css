@@ -31,93 +31,79 @@ a {
 }
 
 /* ---------------------- HEADER ---------------------- */
-/* --- HEADER --- */
+/* === HEADER GENERAL === */
 header {
   width: 100%;
   background-color: transparent;
   display: flex;
-  justify-content: center; /* centra el contenedor interno */
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: background-color 0.5s ease, box-shadow 0.5s ease, padding 0.4s ease;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* --- Contenedor interno del header --- */
 header .header-content {
   width: 100%;
-  max-width: 1200px; /* mantiene el contenido centrado */
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  transition: padding 0.4s ease;
+  padding: 14px 28px;
+  transition: padding 0.3s ease;
 }
 
 header.scrolled {
-  background-color: rgba(255, 255, 255, 0.90); /* un poco más blanco */
-  backdrop-filter: blur(8px); /* 🔹 agrega desenfoque suave al fondo */
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
   box-shadow: var(--sombra);
-  width: 100vw;
 }
 
 header.scrolled .header-content {
-  padding: 8px 30px; /* 🔹 compacta el contenido al hacer scroll */
+  padding: 8px 22px;
 }
 
-/* --- Logo y nombre --- */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.4s ease;
-}
-
+/* === LOGO Y NOMBRE === */
 .logo {
-  height: 50px;
-  border-radius: 50%;
-  transition: height 0.4s ease, transform 0.4s ease;
+  height: 46px;
+  transition: height 0.25s ease;
 }
 
 .nombre-tienda {
-  font-size: 1.6rem;
-  letter-spacing: 2px;
-  color: var(--color-texto);
-  transition: font-size 0.4s ease;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  transition: font-size 0.25s ease;
 }
 
 header.scrolled .logo {
-  height: 38px;
-  transform: translateY(1px);
+  height: 36px;
 }
 
 header.scrolled .nombre-tienda {
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  transform: translateY(1px);
+  font-size: 1.25rem;
 }
 
+/* === RESPONSIVE HEADER === */
+@media (max-width: 768px) {
+  .logo {
+    height: 38px;
+  }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  .nombre-tienda {
+    font-size: 1.2rem;
+  }
+
+  header .header-content {
+    padding: 12px 20px;
+  }
+
+  header.scrolled .header-content {
+    padding: 6px 16px;
+  }
 }
-
-.logo {
-  height: 50px;
-  border-radius: 50%;
-}
-
-.nombre-tienda {
-  font-size: 1.6rem;
-  letter-spacing: 2px;
-  color: var(--color-texto);
-}
-
 /* ---------------------- NAV ---------------------- */
 nav ul {
   list-style: none;
@@ -150,7 +136,7 @@ nav ul li a:hover {
   width: 100%;
   background-color: var(--fondo);
   text-align: center;
-  padding: 90px 20px 35px; /* 🔹 Menos espacio arriba y abajo */
+  padding: 120px 20px 35px; /* 🔹 Menos espacio arriba y abajo */
   min-height: 200px; /* 🔹 Más compacto */
   display: flex;
   flex-direction: column;
