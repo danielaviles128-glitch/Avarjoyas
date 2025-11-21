@@ -90,7 +90,7 @@ header.scrolled .nombre-tienda {
 /* === RESPONSIVE HEADER === */
 @media (max-width: 768px) {
   header .header-content {
-    padding: 12px 20px;
+    padding: 10px 16px;
   }
 
   .logo {
@@ -102,7 +102,7 @@ header.scrolled .nombre-tienda {
   }
 
   header.scrolled .header-content {
-    padding: 8px 16px;
+    padding: 8px 14px;
   }
 }
 /* === LOGO + NOMBRE EN FILA === */
@@ -384,33 +384,6 @@ nav ul li a:hover {
 footer .social-icons img {
   width: 25px;
   margin: 0 8px;
-}
-
-/* ---------------------- RESPONSIVE ---------------------- */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    padding: 15px;
-    box-shadow: var(--sombra);
-    border-radius: 8px;
-  }
-
-  nav.activo {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  header {
-    padding: 10px 20px;
-  }
 }
 
 /* --- MODAL CARRITO --- */
@@ -986,54 +959,51 @@ footer {
   padding-bottom: 4rem;
 }
 /* ============================
-   MENÚ HAMBURGUESA MÓVIL — CORREGIDO
+   MENÚ HAMBURGUESA MÓVIL — DEFINITIVO
 ============================ */
 
 @media (max-width: 768px) {
 
-  /* BOTÓN ☰ */
   .menu-toggle {
     display: block !important;
     font-size: 2rem;
     cursor: pointer;
     user-select: none;
-    z-index: 99999;
+    z-index: 10001;
   }
 
-  /* NAV OCULTO */
   nav {
     position: fixed;
     top: 0;
-    right: -100%;   /* oculto inicialmente */
-    width: 70%;
-    max-width: 330px;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    box-shadow: -5px 0 18px rgba(0,0,0,0.1);
-    transition: right 0.35s ease;
-    padding-top: 80px;
-    z-index: 9999;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: -4px 0 12px rgba(0,0,0,0.08);
+    padding-top: 90px;
+    transition: right .35s ease;
+    z-index: 10000; /* encima del overlay */
   }
 
-  /* NAV CUANDO ESTÁ ABIERTO */
   nav.activo {
-    right: 0 !important;
+    right: 0;
   }
 
   nav ul {
     display: flex !important;
     flex-direction: column;
-    gap: 20px;
-    padding-left: 25px;
+    gap: 22px;
+    padding-left: 28px;
   }
 
   nav ul li a {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 500;
   }
 
-  /* OVERLAY CORREGIDO */
+  /* Overlay */
   #overlayMenu {
     position: fixed;
     inset: 0;
@@ -1041,8 +1011,8 @@ footer {
     backdrop-filter: blur(3px);
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s ease;
-    z-index: 9998;
+    transition: .3s ease;
+    z-index: 9999; /* debajo del nav */
   }
 
   #overlayMenu.activo {
