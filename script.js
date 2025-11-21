@@ -238,6 +238,15 @@ document.querySelectorAll("nav a").forEach(link => {
     menuToggle.textContent = "☰";
   });
 });
+const cerrarMenu = document.getElementById("cerrarMenu");
+
+cerrarMenu.addEventListener("click", () => {
+  nav.classList.remove("activo");
+  overlayMenu.classList.remove("activo");
+  menuToggle.textContent = "☰";
+});
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-suscripcion");

@@ -1024,3 +1024,21 @@ footer {
     font-weight: 500;
   }
 }
+/* Botón X del menú móvil */
+.cerrar-menu {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10020;
+  color: #4B3C33;
+  user-select: none;
+  display: none; /* solo visible en móvil */
+}
+
+@media (max-width: 768px) {
+  .cerrar-menu {
+    display: block;
+  }
+}
