@@ -220,7 +220,7 @@ menuToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("activo");
   overlayMenu.classList.toggle("activo");
 
-  menuToggle.textContent = isOpen ? "✕" : "☰";
+  menuToggle.textContent = isOpen ? "☰";
 });
 
 // Cerrar al hacer clic FUERA
