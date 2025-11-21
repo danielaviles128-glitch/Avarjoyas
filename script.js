@@ -354,36 +354,40 @@ document.addEventListener("DOMContentLoaded", () => {
   iniciarSlider();
 });
 
-document.getElementById("form-contacto").addEventListener("submit", async (e) => {
-  e.preventDefault();
+const formContacto = document.getElementById("form-contacto");
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const email = document.getElementById("correo").value.trim();
-  const mensaje = document.getElementById("mensaje").value.trim();
-  const estado = document.getElementById("estado-mensaje");
+if (formContacto) {
+  formContacto.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  estado.textContent = "Enviando mensaje... ⏳";
-  estado.style.color = "#d4a017"; // dorado
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("correo").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+    const estado = document.getElementById("estado-mensaje");
 
-  try {
-    const respuesta = await fetch("https://avarjoyas-api.onrender.com/api/contacto", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, email, mensaje }),
-    });
+    estado.textContent = "Enviando mensaje... ⏳";
+    estado.style.color = "#d4a017";
 
-    const data = await respuesta.json();
+    try {
+      const respuesta = await fetch("https://avarjoyas-api.onrender.com/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, email, mensaje }),
+      });
 
-    if (respuesta.ok) {
-      estado.textContent = "✅ ¡Mensaje enviado correctamente!";
-      estado.style.color = "green";
-      e.target.reset(); // limpia los campos
-    } else {
-      estado.textContent = `❌ ${data.error || "Error al enviar el mensaje."}`;
+      const data = await respuesta.json();
+
+      if (respuesta.ok) {
+        estado.textContent = "✅ ¡Mensaje enviado correctamente!";
+        estado.style.color = "green";
+        formContacto.reset();
+      } else {
+        estado.textContent = `❌ ${data.error || "Error al enviar el mensaje."}`;
+        estado.style.color = "red";
+      }
+    } catch (error) {
+      estado.textContent = "⚠️ Error de conexión con el servidor.";
       estado.style.color = "red";
     }
-  } catch (error) {
-    estado.textContent = "⚠️ Error de conexión con el servidor.";
-    estado.style.color = "red";
-  }
-});
+  });
+}
