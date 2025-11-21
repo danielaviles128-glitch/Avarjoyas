@@ -958,8 +958,29 @@ footer {
   background-color: var(--fondo);
   padding-bottom: 4rem;
 }
+
 /* ============================
-   MENÚ HAMBURGUESA MÓVIL — DEFINITIVO
+   OVERLAY CORRECTO
+============================ */
+
+.overlayMenu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 9000; /* debajo del menú */
+}
+
+.overlayMenu.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================
+   MENÚ LATERAL
 ============================ */
 
 @media (max-width: 768px) {
@@ -979,12 +1000,12 @@ footer {
     width: 75%;
     max-width: 320px;
     height: 100vh;
-    background: rgba(255,255,255,0.97);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(10px);
-    box-shadow: -4px 0 12px rgba(0,0,0,0.08);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.08);
     padding-top: 90px;
-    transition: right .35s ease;
-    z-index: 10000; /* encima del overlay */
+    transition: right 0.35s ease;
+    z-index: 10010; /* encima del overlay */
   }
 
   nav.activo {
@@ -1002,29 +1023,4 @@ footer {
     font-size: 1.35rem;
     font-weight: 500;
   }
-
-  /* Overlay */
-  .overlayMenu {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(3px);
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s ease;
-    z-index: 9999; /* debajo del nav */
-  }
-
-  .overlayMenu.activo {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-/* FORZAR ORDEN CORRECTO DEL MENÚ Y OVERLAY */
-nav {
-  z-index: 10020 !important;
-}
-
-.overlayMenu {
-  z-index: 10010 !important;
 }
