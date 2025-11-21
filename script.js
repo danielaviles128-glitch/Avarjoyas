@@ -210,20 +210,59 @@ function filtrarProductos() {
 
   mostrarCatalogo(filtrados);
 }
-// --- Menú hamburguesa ---
+
+// --- Menú hamburguesa (mejorado con overlay y animación) ---
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.querySelector("nav");
 
-menuToggle.addEventListener("click", () => {
-  nav.classList.toggle("activo");
-});
+// asegurarnos que los elementos existan
+if (menuToggle && nav) {
+  // crear overlay once
+  let overlay = document.getElementById("overlayMenu");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.id = "overlayMenu";
+    document.body.appendChild(overlay);
+  }
 
-// Cerrar el menú al hacer clic en un enlace
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("activo");
+  // función para abrir/cerrar menú
+  function toggleMenu() {
+    const abierto = nav.classList.toggle("activo");
+    overlay.classList.toggle("activo", abierto);
+    menuToggle.textContent = abierto ? "✕" : "☰";
+  }
+
+  // handler del toggle
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
-});
+
+  // cerrar al hacer clic en overlay
+  overlay.addEventListener("click", () => {
+    nav.classList.remove("activo");
+    overlay.classList.remove("activo");
+    menuToggle.textContent = "☰";
+  });
+
+  // cerrar al clicar en cualquier enlace del nav
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("activo");
+      overlay.classList.remove("activo");
+      menuToggle.textContent = "☰";
+    });
+  });
+
+  // cerrar menú con ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      nav.classList.remove("activo");
+      overlay.classList.remove("activo");
+      menuToggle.textContent = "☰";
+    }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-suscripcion");
