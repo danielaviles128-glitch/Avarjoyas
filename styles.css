@@ -1004,7 +1004,7 @@ footer {
   }
 
   /* Overlay */
-  #overlayMenu {
+  .overlayMenu {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.25);
@@ -1015,7 +1015,7 @@ footer {
     z-index: 9999; /* debajo del nav */
   }
 
-  #overlayMenu.activo {
+  .overlayMenu.activo {
     opacity: 1;
     visibility: visible;
   }
@@ -1025,6 +1025,6 @@ nav {
   z-index: 10020 !important;
 }
 
-#overlayMenu {
+.overlayMenu {
   z-index: 10010 !important;
 }
