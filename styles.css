@@ -1022,9 +1022,9 @@ footer {
 }
 /* FORZAR ORDEN CORRECTO DEL MENÚ Y OVERLAY */
 nav {
-  z-index: 10010 !important;
+  z-index: 10020 !important;
 }
 
 #overlayMenu {
-  z-index: 10000 !important;
+  z-index: 10010 !important;
 }
