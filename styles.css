@@ -159,12 +159,14 @@ nav ul li a:hover {
   width: 100%;
   background-color: var(--fondo);
   text-align: center;
-  padding: 120px 20px 35px; /* 🔹 Menos espacio arriba y abajo */
+  padding: 120px 0 35px; /* 🔹 Menos espacio arriba y abajo */
   min-height: 200px; /* 🔹 Más compacto */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
+
 }
 
 /* --- Contenedor del carrusel --- */
