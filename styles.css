@@ -1046,11 +1046,11 @@ footer {
 }
 
 /* --- BOTÓN VER MÁS --- */
-.ver-mas-contenedor {
+.ver-mas-container {
   width: 100%;
   text-align: center;
-  margin-top: -40px; /* se acerca al grid */
-  margin-bottom: 60px;
+  margin: 20px 0 60px 0;
+  display: block;
 }
 
 .btn-ver-mas {
@@ -1063,12 +1063,13 @@ footer {
   font-weight: 500;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  /* Animación */
   opacity: 0;
-  transform: translateY(20px);
-  animation: aparecer 1s ease-out forwards;
+  transform: translateY(25px);
+  animation: aparecer 0.9s ease-out forwards;
 }
 
-/* 🔹 ANIMACIÓN SUAVE */
 @keyframes aparecer {
   to {
     opacity: 1;
@@ -1076,8 +1077,14 @@ footer {
   }
 }
 
-.btn-ver-mas:hover {
-  background-color: #b38a32;
-  transform: translateY(-3px);
-  transition: 0.3s ease;
+/* 🔹 Móvil: asegura que el botón siempre sea visible */
+@media (max-width: 768px) {
+  .ver-mas-container {
+    margin-top: 10px !important;
+  }
+
+  .btn-ver-mas {
+    font-size: 1rem;
+    padding: 12px 22px;
+  }
 }
