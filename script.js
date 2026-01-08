@@ -48,6 +48,7 @@ function mostrarCatalogo(lista = productos) {
   lista.forEach(prod => {
     const div = document.createElement("div");
     div.classList.add("producto");
+    div.dataset.id = prod.id;
     div.innerHTML = `
       <img src="${prod.imagen.split(',')[0].trim()}" alt="${prod.nombre}" onclick="abrirLightbox(${prod.id},0)">
       <h3>${prod.nombre}</h3>
@@ -86,9 +87,25 @@ function agregarAlCarrito(id) {
   } else {
     carrito.push({ ...prod, cantidad: 1 });
   }
-  prod.stock--;
-  actualizarStockServidor(id, 1, "reducir-stock");
 
+  // 🔽 actualizar estado
+  prod.stock--;
+
+  // 🔽 actualizar SOLO la tarjeta visual
+  const card = document.querySelector(`.producto[data-id="${id}"]`);
+  if (card) {
+    const stockP = card.querySelector(".stock");
+    const button = card.querySelector("button");
+
+    stockP.textContent = `Stock: ${prod.stock}`;
+
+    if (prod.stock === 0) {
+      button.textContent = "Agotado";
+      button.disabled = true;
+    }
+  }
+
+  actualizarStockServidor(id, 1, "reducir-stock");
   guardarCarrito();
   actualizarCarrito();
 }
