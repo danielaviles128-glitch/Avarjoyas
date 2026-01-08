@@ -1,5 +1,5 @@
 let productos = [];
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = [];
 
 // --- Cargar productos desde la base de datos (automático: local o producción) ---
 async function cargarProductos() {
@@ -48,7 +48,6 @@ function mostrarCatalogo(lista = productos) {
   lista.forEach(prod => {
     const div = document.createElement("div");
     div.classList.add("producto");
-    div.dataset.id = prod.id;
     div.innerHTML = `
       <img src="${prod.imagen.split(',')[0].trim()}" alt="${prod.nombre}" onclick="abrirLightbox(${prod.id},0)">
       <h3>${prod.nombre}</h3>
@@ -87,26 +86,10 @@ function agregarAlCarrito(id) {
   } else {
     carrito.push({ ...prod, cantidad: 1 });
   }
-
-  // 🔽 actualizar estado
   prod.stock--;
-
-  // 🔽 actualizar SOLO la tarjeta visual
-  const card = document.querySelector(`.producto[data-id="${id}"]`);
-  if (card) {
-    const stockP = card.querySelector(".stock");
-    const button = card.querySelector("button");
-
-    stockP.textContent = `Stock: ${prod.stock}`;
-
-    if (prod.stock === 0) {
-      button.textContent = "Agotado";
-      button.disabled = true;
-    }
-  }
-
   actualizarStockServidor(id, 1, "reducir-stock");
-  guardarCarrito();
+
+  mostrarCatalogo();
   actualizarCarrito();
 }
 
@@ -146,9 +129,7 @@ function eliminarDelCarrito(index) {
 
   carrito.splice(index, 1);
   mostrarCatalogo();
-  guardarCarrito();
   actualizarCarrito();
-  
 }
 // --- Lightbox (solo manual) ---
 function abrirLightbox(id, index = 0) {
@@ -415,9 +396,3 @@ async function actualizarStockServidor(id, cantidad, accion) {
     console.error("❌ Error actualizando stock en servidor:", error);
   }
 }
-function guardarCarrito() {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarCarrito();
-});
