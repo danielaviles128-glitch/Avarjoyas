@@ -1,5 +1,5 @@
 let productos = [];
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // --- Cargar productos desde la base de datos (automático: local o producción) ---
 async function cargarProductos() {
@@ -89,6 +89,7 @@ function agregarAlCarrito(id) {
   prod.stock--;
   actualizarStockServidor(id, 1, "reducir-stock");
 
+  guardarCarrito();
   actualizarCarrito();
 }
 
@@ -128,7 +129,9 @@ function eliminarDelCarrito(index) {
 
   carrito.splice(index, 1);
   mostrarCatalogo();
+  guardarCarrito();
   actualizarCarrito();
+  
 }
 // --- Lightbox (solo manual) ---
 function abrirLightbox(id, index = 0) {
@@ -395,3 +398,9 @@ async function actualizarStockServidor(id, cantidad, accion) {
     console.error("❌ Error actualizando stock en servidor:", error);
   }
 }
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+document.addEventListener("DOMContentLoaded", () => {
+  actualizarCarrito();
+});
