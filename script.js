@@ -87,8 +87,8 @@ function agregarAlCarrito(id) {
     carrito.push({ ...prod, cantidad: 1 });
   }
   prod.stock--;
+  actualizarStockServidor(id, 1, "reducir-stock");
 
-  mostrarCatalogo();
   actualizarCarrito();
 }
 
@@ -124,6 +124,7 @@ function eliminarDelCarrito(index) {
   let eliminado = carrito[index];
   let prod = productos.find(p => p.id === eliminado.id);
   if (prod) prod.stock += eliminado.cantidad;
+  actualizarStockServidor(eliminado.id, eliminado.cantidad, "aumentar-stock");
 
   carrito.splice(index, 1);
   mostrarCatalogo();
@@ -374,4 +375,23 @@ if (formContacto) {
       estado.style.color = "red";
     }
   });
+}
+async function actualizarStockServidor(id, cantidad, accion) {
+  const API_BASE_URL = window.location.hostname.includes("localhost")
+    ? "http://localhost:3000"
+    : "https://avarjoyas-api.onrender.com";
+
+  try {
+    const respuesta = await fetch(`${API_BASE_URL}/api/productos/${id}/${accion}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cantidad })
+    });
+
+    const data = await respuesta.json();
+    console.log("Stock actualizado en servidor:", data);
+
+  } catch (error) {
+    console.error("❌ Error actualizando stock en servidor:", error);
+  }
 }
